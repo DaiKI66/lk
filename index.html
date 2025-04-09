@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>鸡</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            font-size: 22px;
+            color: #333;
+            transition: all 0.3s ease-in-out;
+        }
+        button {
+            margin: 12px;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+            display: inline-block;
+        }
+        #yesBtn:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+        #noBtn:hover {
+            background-color: #d32f2f;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p>李珂是不是世界上最最好看的女人</p>
+        <button id="yesBtn" onclick="becomeFather()">是</button>
+        <button id="noBtn" onclick="adjustButtons()">不是</button>
+    </div>
+    <script>
+        let yesButton = document.getElementById('yesBtn');
+        let noButton = document.getElementById('noBtn');
+        function adjustButtons() {
+            let currentYesSize = window.getComputedStyle(yesButton).fontSize;
+            let newYesSize = parseInt(currentYesSize) + 5;
+            yesButton.style.fontSize = newYesSize + 'px';
+            yesButton.style.padding = (newYesSize / 2) + 'px ' + newYesSize + 'px';
+            
+            let currentNoSize = window.getComputedStyle(noButton).fontSize;
+            let newNoSize = Math.max(parseInt(currentNoSize) - 1, 0);
+            noButton.style.fontSize = newNoSize + 'px';
+            noButton.style.padding = (newNoSize / 2) + 'px ' + newNoSize + 'px';
+        }
+        function becomeFather() {
+            document.getElementById('container').innerHTML = '<p>嘻嘻嘻,你咋那么聪明呢！</p>';
+        }
+    </script>
+</body>
+</html>
